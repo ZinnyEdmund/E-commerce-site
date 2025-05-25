@@ -1,0 +1,112 @@
+.BestSeller-container {
+  margin: 50px auto;
+}
+
+.BestSeller-products-header {
+  font-size: 25px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.myH4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #737373;
+  margin-bottom: 16px;
+}
+
+.myH2 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #252B42;
+  margin-bottom: 10px;
+}
+
+.myP {
+  font-size: 12px;
+  font-weight: 500;
+  color: #737373;
+  margin-bottom: 10px;
+}
+
+.BestSeller-products-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 2fr);
+  gap: 20px;
+  flex-wrap: wrap;
+  margin: 50px;
+}
+
+.BestSeller-products-card {
+   padding: 10px;
+  transition: all 0.5s ease;
+}
+
+.BestSeller-products-card:hover{
+  transform: scale(1.1) ;
+}
+
+
+.BestSeller-component {
+   width: 100%;
+   height: '150px';
+   object-fit: cover;
+}
+
+.BestSeller-product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.BestSeller-products-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 150px;
+}
+
+.BestSeller-product-title {
+  font-size: 16px;
+  color: #060624;
+  margin-bottom: 10px;
+}
+
+.BestSeller-product-description {
+  font-size: 12px;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.BestSeller-product-price {
+  color: #2f8656;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.Price-tag {
+  color: #73737381;
+  font-size: 13px;
+  font-weight: 500;
+  padding-right: 5px;
+}
+
+.load-more-button {
+  color: #23A6F0;
+  background-color: #fff;
+  padding: 12px 35px;
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid #23A6F0;
+  border-radius: 5px;
+}
+
+.load-more-button:hover {
+  background-color: #23A6F0;
+  color: #fff;
+  transition: all 0.3s ease;
+  transform: translateY(-5px);
+}

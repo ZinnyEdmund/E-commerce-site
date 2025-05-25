@@ -1,0 +1,207 @@
+/* Testimonial Section */
+.testimonial-container {
+  box-sizing: border-box;
+  align-items: center;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonial-content {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  justify-content: center;
+  gap: 100px;
+}
+
+.testimonial {
+  text-align: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.textContent {
+   font-size: 16px;
+   margin-bottom: 60px;
+   color: #060624;
+}
+
+.testimonial-img1 {
+  margin-bottom: 20px;
+}
+
+.image-info {
+  color: #535252;
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.p-text {
+  margin: 0;
+}
+
+.Sname {
+  color: #23A6F2;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.designation {
+  color: #060624;
+  font-size: 12px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* BETTER EXPERIENCE */
+
+.better-experience {
+  position: relative;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.better-experience-text {
+  position: absolute;
+  top: 15px;
+  bottom: 0;
+  left: 0;
+  padding:  20px;
+  width: 100%;
+}
+
+.better-experience-text-left {
+  text-align: center;
+  margin-top: 150px;
+}
+
+.better-text-left-title {
+  font-size: 14px;
+  color: #23A6F0;
+  margin-bottom: 30px;
+}
+
+.better-text-left-subtitle {
+  font-size: 40px;
+  color: #252B42;
+  font-weight: bolder;
+  margin-bottom: 25px;
+}
+
+.better-text-left-description {
+  font-size: 12px;
+  color: #737373;
+  margin-bottom: 30px;
+}
+
+.price-tag {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2a774a;
+  margin-bottom: 30px;
+}
+
+.better-experience-btn {
+  color: #fff;
+  background-color: #23A6F2;
+  font-size: 12px;
+  padding: 10px 30px;
+  border-radius: 5px;
+  border: none;
+}
+
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .testimonial-content {
+    gap: 60px;
+  }
+
+  .better-text-left-subtitle {
+    font-size: 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .textContent {
+    font-size: 15px;
+    margin-bottom: 40px;
+  }
+
+  .better-experience-text-left {
+    margin-top: 100px;
+  }
+
+  .better-text-left-subtitle {
+    font-size: 28px;
+  }
+
+  .better-text-left-description {
+    font-size: 14px;
+  }
+
+  .better-experience-btn {
+    font-size: 11px;
+    padding: 8px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .testimonial-container {
+    padding: 10px;
+  }
+
+  .testimonial {
+    margin-top: 15px;
+    gap: 10px;
+  }
+
+  .textContent {
+    font-size: 14px;
+  }
+
+  .image-info {
+    font-size: 13px;
+  }
+
+  .Sname,
+  .designation {
+    font-size: 10px;
+  }
+
+  .better-text-left-title {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .better-text-left-subtitle {
+    font-size: 22px;
+    margin-bottom: 20px;
+  }
+
+  .better-text-left-description {
+    font-size: 12px;
+    margin-bottom: 20px;
+  }
+
+  .price-tag {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .better-experience-text {
+    padding: 10px;
+  }
+
+  .better-experience-btn {
+    padding: 7px 16px;
+  }
+}
