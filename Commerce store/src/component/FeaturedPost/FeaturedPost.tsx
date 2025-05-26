@@ -1,72 +1,68 @@
 import React, { useEffect, useState } from 'react';
-import '../FeaturedPost/FeaturedPost.css';
+import styles from '../FeaturedPost/FeaturedPost.module.css';
+import { useGetProductsQuery } from '../Features/Products/productApiSlice';
 
 interface Product {
   id: number;
-  title: string;
   thumbnail: string;
-  description: string;
-  price: number;
 }
 
 const BestSellers: React.FC = () => {
-  const [products, setProducts] = useState<Product[]>([]); // holds the 10 products
-  const [refreshKey, setRefreshKey] = useState(0); // used to trigger refresh
+  const { data, error, isLoading, refetch } = useGetProductsQuery();
+  const [shuffledProducts, setShuffledProducts] = useState<Product[]>([]);
 
-  // Function to fetch products from DummyJSON
-  const fetchProducts = async () => {
-    try {
-      const response = await fetch('https://dummyjson.com/products');
-      const data = await response.json();
-
-      // Shuffle and select 10 random products
-      const shuffled = [...data.products].sort(() => 0.5 - Math.random());
-      const selected = shuffled.slice(0, 10);
-      setProducts(selected);
-    } catch (error) {
-      console.error('Error fetching products:', error);
+  // Shuffle and pick 10 products
+  const shuffleProducts = React.useCallback(() => {
+    if (data?.products) {
+      const shuffled = [...data.products].sort(() => 0.5 - Math.random()).slice(0, 10);
+      setShuffledProducts(shuffled);
     }
-  };
+  }, [data]);
 
-  // Fetch products whenever refreshKey changes
   useEffect(() => {
-    fetchProducts();
-  }, [refreshKey]);
+    shuffleProducts();
+  }, [data, shuffleProducts]);
 
-  // Function to trigger refresh
-  const handleLoadMore = () => {
-    setRefreshKey(prev => prev + 1);
+  const handleLoadMore = async () => {
+    await refetch(); // Re-fetch data from API
+    shuffleProducts(); // Shuffle again after refetch
   };
 
   return (
     <section>
-        <div className='BestSeller-container'>
-            <div className="BestSeller-products-header">
-                <h4 className='myH4'>Featured Products</h4>
-                <h2 className='myH2'>BESTSELLER PRODUCTS</h2>
-                <p className='myP'>Problems trying to resolve the conflict between </p>
-            </div>
-
-            <div className="BestSeller-products-grid">
-                {products.map(product => (
-                <div key={product.id} className='BestSeller-products-card'>
-                    {/* Display product image, title, and price */}
-                    <img src={product.thumbnail} alt={product.title} className='BestSeller-component' />
-                    <div className='BestSeller-product-details'>
-                        <h4 className='BestSeller-product-title'>{product.title}</h4>
-                        <p className='BestSeller-product-description'>{product.description}</p>
-                        <p className='BestSeller-product-price'><span className='Price-tag'>$16.48</span>${product.price}</p>
-                    </div>
-                   
-                </div>
-                ))}
-            </div>
-
-            <div className='BestSeller-products-button'>
-                {/* Button to load more products */}
-                <button onClick={handleLoadMore} className="load-more-button">LOAD MORE PRODUCTS</button>
-            </div>
+      <div className={styles['BestSeller-container']}>
+        <div className={styles["BestSeller-products-header"]}>
+          <h4 className={styles['myH4']}>Featured Products</h4>
+          <h2 className={styles['myH2']}>BESTSELLER PRODUCTS</h2>
+          <p className={styles['myP']}>Problems trying to resolve the conflict between </p>
         </div>
+
+        {error && <div className={styles['error-message']}>Error fetching products</div>}
+        {isLoading && <div className={styles['loading']}>Loading...</div>}
+
+        <div className={styles["BestSeller-products-grid"]}>
+          {shuffledProducts.map(product => (
+            <div key={product.id} className={styles['BestSeller-products-card']}>
+              <img src={product.thumbnail} alt={product.thumbnail} />
+              <div className={styles['BestSeller-product-details']}>
+                <h4 className={styles["BestSeller-product-title"]}>Graphic Designer</h4>
+                <p className={styles["BestSeller-product-description"]}>English Deparment</p>
+                <p className={styles["Price-tag"]}>$16.48 <span className={styles["BestSeller-product-price"]}>$6.48</span></p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className={styles['BestSeller-products-button']}>
+          <button 
+            onClick={handleLoadMore}
+            disabled={isLoading}
+            className={styles["load-more-button"]}
+          >
+            {isLoading ? 'LOADING...' : 'LOAD MORE PRODUCTS'}
+          </button>
+        </div>
+      </div>
     </section>
   );
 };
