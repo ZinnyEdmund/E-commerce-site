@@ -1,10 +1,11 @@
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
+// exporting the featurepost
+
 export interface Product {
   id: number;
   thumbnail: string;
-  // Add other fields as needed
 }
 
 export const productApi = createApi({
