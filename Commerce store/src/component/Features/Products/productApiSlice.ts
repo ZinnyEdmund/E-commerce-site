@@ -3,9 +3,6 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
 export interface Product {
   id: number;
-  title: string;
-  description: string;
-  price: number;
   thumbnail: string;
   // Add other fields as needed
 }
