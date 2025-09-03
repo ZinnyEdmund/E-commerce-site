@@ -10,7 +10,8 @@ import { FaRegHeart } from "react-icons/fa";
 import { IoIosArrowDown } from "react-icons/io";
 import { BsSearch } from "react-icons/bs";
 import { BsCart } from "react-icons/bs";
-import { BiMenuAltRight } from "react-icons/bi";import { useState } from "react"; // Add this import
+import { BiMenuAltRight } from "react-icons/bi";
+import { useState } from "react"; // Add this import
 import styles from '../Navbar/Navbar.module.css';
 
 function Navbar() {
@@ -21,7 +22,7 @@ function Navbar() {
             <div className={styles["top-info-bar"]}>
                 <div className={styles["contact-info"]}>
                     <div className={styles["contact-item"]}>
-                       <span className={styles["icons"]}><FiPhone/></span>
+                       <span className={styles["icons"]}><FiPhone /></span>
                         <span>(225) 555-0118</span>
                     </div>
                     <div className={styles["contact-item"]}>

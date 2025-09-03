@@ -4,7 +4,7 @@ import { useGetProductsQuery } from '../Features/Products/productApiSlice';
 
 interface Product {
   id: number;
-  thumbnail: string;
+  thumbnail: string; 
 }
 
 const BestSellers: React.FC = () => {
