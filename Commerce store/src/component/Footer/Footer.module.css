@@ -73,8 +73,7 @@
 }
 
 .footer-column ul li a:hover {
-  border: #b6b3b35d 1px solid;
-  padding: 6px 3px;
+  text-decoration: underline;
 }
 
 .subscribe-Btn {
